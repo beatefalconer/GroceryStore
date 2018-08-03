@@ -8,17 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GroceryStore1
 {
     public partial class Form1 : Form
     {
         int totalA = 0;
         int totalB = 0;
-        int priceA = 30;
-        int priceB = 50;
-        int special = 4;
-        double totalCost = 0;
+        //int priceA = 30;
+        //int priceB = 50;
+        //int special = 4;
+        //double totalCost = 0;
             public Form1()
+            
         {
 
             InitializeComponent();
@@ -43,9 +45,12 @@ namespace GroceryStore1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            totalCost = priceA * totalA + priceB * (totalB / (special + 1)) * special + priceB * (totalB % (special + 1));
-            totalCost = totalCost / 100;
-            textBoxTotalPrice.Text = String.Format(totalCost.ToString("C2"));
+            Register calculator = new Register();
+            //totalCost = priceA * totalA + priceB * (totalB / (special + 1)) * special + priceB * (totalB % (special + 1));
+            //totalCost = totalCost / 100;
+            //textBoxTotalPrice.Text = String.Format(totalCost.ToString("C2"));
+            double costinCents = calculator.calculateTotal(totalA, totalB);
+            textBoxTotalPrice.Text = (costinCents/100).ToString();
 
             CheckoutPanel.Show();
             ShoppingPanel.Hide();
